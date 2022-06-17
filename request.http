@@ -1,0 +1,10 @@
+###
+POST   http://localhost:9000/api/xboxseries/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombre":">Hot Wheels Unleashed",
+    "categoria":"xboxseries",
+    "precio":"162.10",
+    "image":"../img/xbox/xbox-one_hot-wheels.jpg"
+}
