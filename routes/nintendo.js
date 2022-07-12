@@ -112,6 +112,33 @@ router.get('/nintendo/:id', (req,res) => {
     .then((data) => res.json(data))
     .catch((error) => res.json (error))
 })
+
+/**
+ * @swagger
+ * /api/nintendo/{id}:
+ *  put:
+ *    summary:  Actualizar productos de la categoria nintendo por id
+ *    tags: [Nintendo]
+ *    parameters:
+ *      - in: path
+ *        name: id
+ *        schema:
+ *          type: string
+ *        required: true
+ *        description: id del producto a buscar
+ *    responses:
+ *      200:
+ *        description: producto encontrado
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: array
+ *              items:
+ *                $ref: '#components/schemas/pc'
+ *      404:
+ *        description: No existe el producto
+ */
+
 router.put('/nintendo/:id', (req,res) => {
     const {id} = req.params;
     const {nombre,edad,correo} = req.body;
