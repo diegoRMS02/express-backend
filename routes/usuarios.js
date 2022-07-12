@@ -110,6 +110,33 @@ router.get('/usuarios/:id', (req,res) => {
     .then((data) => res.json(data))
     .catch((error) => res.json (error))
 });
+
+/**
+ * @swagger
+ * /api/usuarios/{id}:
+ *  put:
+ *    summary: Actualizar usuarios por id
+ *    tags: [Usuarios]
+ *    parameters:
+ *      - in: path
+ *        name: id
+ *        schema:
+ *          type: string
+ *        required: true
+ *        description: id del usuario a buscar
+ *    responses:
+ *      200:
+ *        description: Usuario encontrado
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: array
+ *              items:
+ *                $ref: '#components/schemas/Usuarios'
+ *      404:
+ *        description: No existe el usuario
+ */
+
 router.put('/usuarios/:id', (req,res) => {
     const {id} = req.params;
     const {nombre,edad,correo} = req.body;
