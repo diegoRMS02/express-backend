@@ -111,6 +111,34 @@ router.get('/playStation/:id', (req,res) => {
     .then((data) => res.json(data))
     .catch((error) => res.json (error))
 })
+
+/**
+ * @swagger
+ * /api/playStation/{id}:
+ *  put:
+ *    summary:  Actualizar productos de la categoria playStation por id
+ *    tags: [PlayStation]
+ *    parameters:
+ *      - in: path
+ *        name: id
+ *        schema:
+ *          type: string
+ *        required: true
+ *        description: id del producto a buscar
+ *    responses:
+ *      200:
+ *        description: producto encontrado
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: array
+ *              items:
+ *                $ref: '#components/schemas/playStation'
+ *      404:
+ *        description: No existe el producto
+ */
+
+
 router.put('/playStation/:id', (req,res) => {
     const {id} = req.params;
     const {nombre,edad,correo} = req.body;
