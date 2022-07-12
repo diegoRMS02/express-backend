@@ -114,6 +114,33 @@ router.get('/pc/:id', (req,res) => {
     .then((data) => res.json(data))
     .catch((error) => res.json (error))
 })
+
+/**
+ * @swagger
+ * /api/pc/{id}:
+ *  put:
+ *    summary: Actualizar productos  de la categoria pc por id
+ *    tags: [PC]
+ *    parameters:
+ *      - in: path
+ *        name: id
+ *        schema:
+ *          type: string
+ *        required: true
+ *        description: id del producto a buscar
+ *    responses:
+ *      200:
+ *        description: producto encontrado
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: array
+ *              items:
+ *                $ref: '#components/schemas/pc'
+ *      404:
+ *        description: No existe el producto
+ */
+
 router.put('/pc/:id', (req,res) => {
     const {id} = req.params;
     const {nombre,edad,correo} = req.body;
