@@ -113,6 +113,33 @@ router.get('/xboxseries/:id', (req,res) => {
     .then((data) => res.json(data))
     .catch((error) => res.json (error))
 })
+
+/**
+ * @swagger
+ * /api/xboxseries/{id}:
+ *  put:
+ *    summary:  Actualizar productos de la categoria xboxseries por id
+ *    tags: [XboxSeries]
+ *    parameters:
+ *      - in: path
+ *        name: id
+ *        schema:
+ *          type: string
+ *        required: true
+ *        description: id del producto a buscar
+ *    responses:
+ *      200:
+ *        description: producto encontrado
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: array
+ *              items:
+ *                $ref: '#components/schemas/xboxseries'
+ *      404:
+ *        description: No existe el producto
+ */
+
 router.put('/xboxseries/:id', (req,res) => {
     const {id} = req.params;
     const {nombre,edad,correo} = req.body;
